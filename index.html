@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>森林溫習測驗</title>
+    <style>
+      :root {
+        --bg: #f6f2e8;
+        --surface: #ffffff;
+        --ink: #18211c;
+        --muted: #5f6b60;
+        --line: #d7dfd0;
+        --forest: #1f6f50;
+        --forest-dark: #114836;
+        --gold: #d8a23a;
+        --clay: #ad6036;
+        --shadow: 0 16px 38px rgba(24, 33, 28, 0.14);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        min-height: 100%;
+        background: var(--bg);
+        color: var(--ink);
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+          sans-serif;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+      }
+
+      button {
+        border: 0;
+        border-radius: 8px;
+        cursor: pointer;
+        font: inherit;
+        font-weight: 800;
+      }
+
+      button:focus-visible {
+        outline: 3px solid rgba(216, 162, 58, 0.86);
+        outline-offset: 3px;
+      }
+
+      .shell {
+        display: grid;
+        min-height: 100vh;
+        padding: 18px 14px 28px;
+        place-items: center;
+      }
+
+      .assignment {
+        background: var(--surface);
+        border: 1px solid rgba(31, 111, 80, 0.16);
+        border-radius: 8px;
+        box-shadow: var(--shadow);
+        display: grid;
+        gap: 18px;
+        max-width: 520px;
+        padding: 24px;
+        width: 100%;
+      }
+
+      .eyebrow {
+        color: var(--clay);
+        font-size: 0.82rem;
+        font-weight: 900;
+        letter-spacing: 0;
+        margin: 0 0 4px;
+      }
+
+      h1,
+      p {
+        margin: 0;
+      }
+
+      h1 {
+        font-size: clamp(2rem, 9vw, 3.15rem);
+        line-height: 1.08;
+      }
+
+      .assigned {
+        background: #eef4ed;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        display: grid;
+        gap: 6px;
+        padding: 16px;
+      }
+
+      .assigned-label {
+        color: var(--muted);
+        font-size: 0.92rem;
+        font-weight: 800;
+      }
+
+      .assigned-value {
+        color: var(--forest-dark);
+        font-size: 1.8rem;
+        font-weight: 900;
+        line-height: 1.15;
+      }
+
+      .copy {
+        color: var(--muted);
+        font-size: 0.96rem;
+        line-height: 1.45;
+      }
+
+      .start-button {
+        background: var(--forest);
+        color: #fff;
+        min-height: 52px;
+        padding: 13px 18px;
+        width: 100%;
+      }
+
+      .start-button:active {
+        transform: translateY(1px);
+      }
+    </style>
+  </head>
+  <body>
+    <main class="shell">
+      <section class="assignment" aria-live="polite">
+        <div>
+          <p class="eyebrow">森林溫習測驗</p>
+          <h1>森林溫習測驗</h1>
+        </div>
+
+        <div class="assigned">
+          <p class="assigned-label">你抽中：</p>
+          <p id="assignedValue" class="assigned-value">載入中</p>
+        </div>
+
+        <p class="copy">重新整理此頁會重新抽選測驗。</p>
+        <button id="startButton" class="start-button" type="button">Start!</button>
+      </section>
+    </main>
+
+    <script>
+      (function () {
+        const QUIZZES = {
+          trees: {
+            label: "樹木",
+            path: "trees/happy%20tree%20friends.html",
+          },
+          butterflies: {
+            label: "蝴蝶",
+            path: "butterflies/butterfly.html",
+          },
+        };
+
+        const assignedValue = document.querySelector("#assignedValue");
+        const startButton = document.querySelector("#startButton");
+
+        function chooseAssignment() {
+          return Math.random() < 0.5 ? "trees" : "butterflies";
+        }
+
+        const assignment = chooseAssignment();
+        const quiz = QUIZZES[assignment];
+        assignedValue.textContent = quiz.label;
+
+        startButton.addEventListener("click", () => {
+          window.location.href = quiz.path;
+        });
+      })();
+    </script>
+  </body>
+</html>

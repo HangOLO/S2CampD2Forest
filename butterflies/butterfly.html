@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>蝴蝶溫習測驗</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <section class="topbar" aria-label="測驗狀態">
+        <div>
+          <p class="eyebrow">森林溫習</p>
+          <h1>蝴蝶測驗</h1>
+        </div>
+        <div id="statusChip" class="status-chip" aria-live="polite">60秒</div>
+      </section>
+
+      <section id="app" class="screen" aria-live="polite"></section>
+    </main>
+
+    <script src="data/butterflies.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>

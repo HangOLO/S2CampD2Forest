@@ -1,0 +1,272 @@
+:root {
+  --bg: #f6f2e8;
+  --surface: #ffffff;
+  --surface-alt: #eef4ed;
+  --ink: #18211c;
+  --muted: #647064;
+  --line: #d7dfd0;
+  --forest: #1f6f50;
+  --forest-dark: #114836;
+  --clay: #ad6036;
+  --gold: #d8a23a;
+  --danger: #8f2f28;
+  --shadow: 0 14px 32px rgba(24, 33, 28, 0.12);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-height: 100%;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+body {
+  margin: 0;
+  min-height: 100%;
+}
+
+button {
+  border: 0;
+  border-radius: 8px;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 700;
+}
+
+button:focus-visible {
+  outline: 3px solid rgba(216, 162, 58, 0.85);
+  outline-offset: 3px;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+.shell {
+  margin: 0 auto;
+  min-height: 100vh;
+  max-width: 520px;
+  padding: 16px 14px 28px;
+}
+
+.topbar {
+  align-items: center;
+  background: rgba(246, 242, 232, 0.96);
+  display: flex;
+  gap: 12px;
+  justify-content: space-between;
+  margin: -16px -14px 0;
+  padding: 16px 14px 14px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.eyebrow {
+  color: var(--clay);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0;
+  margin: 0 0 2px;
+}
+
+h1,
+h2,
+p {
+  margin: 0;
+}
+
+h1 {
+  font-size: 1.65rem;
+  line-height: 1.15;
+}
+
+h2 {
+  font-size: 1.35rem;
+  line-height: 1.22;
+}
+
+.status-chip {
+  align-items: center;
+  background: var(--forest-dark);
+  border-radius: 8px;
+  color: #fff;
+  display: inline-flex;
+  font-size: 0.98rem;
+  font-weight: 800;
+  justify-content: center;
+  min-height: 42px;
+  min-width: 74px;
+  padding: 8px 10px;
+  white-space: nowrap;
+}
+
+.screen {
+  display: grid;
+  gap: 14px;
+}
+
+.panel {
+  background: var(--surface);
+  border: 1px solid rgba(31, 111, 80, 0.14);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+  padding: 14px;
+}
+
+.study-intro {
+  display: grid;
+  gap: 10px;
+}
+
+.study-copy {
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.45;
+}
+
+.actions {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: 1fr;
+}
+
+.primary,
+.secondary,
+.answer-option {
+  min-height: 48px;
+  padding: 12px 14px;
+}
+
+.primary {
+  background: var(--forest);
+  color: #fff;
+}
+
+.secondary {
+  background: #efe3cc;
+  color: #4c3425;
+}
+
+.tree-grid {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.tree-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.tree-card img {
+  aspect-ratio: 4 / 3;
+  background: var(--surface-alt);
+  height: auto;
+  object-fit: cover;
+  width: 100%;
+}
+
+.tree-name {
+  align-items: center;
+  display: flex;
+  font-size: 0.92rem;
+  font-weight: 800;
+  justify-content: center;
+  line-height: 1.25;
+  min-height: 46px;
+  overflow-wrap: anywhere;
+  padding: 8px;
+  text-align: center;
+  word-break: keep-all;
+}
+
+.quiz-card {
+  display: grid;
+  gap: 14px;
+}
+
+.quiz-meta {
+  align-items: center;
+  color: var(--muted);
+  display: flex;
+  font-size: 0.92rem;
+  font-weight: 700;
+  justify-content: space-between;
+}
+
+.question-image {
+  background: var(--surface-alt);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.question-image img {
+  aspect-ratio: 4 / 3;
+  height: auto;
+  object-fit: cover;
+  width: 100%;
+}
+
+.answer-grid {
+  display: grid;
+  gap: 10px;
+}
+
+.answer-option {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  color: var(--ink);
+  line-height: 1.3;
+  text-align: center;
+}
+
+.answer-option:active,
+.primary:active,
+.secondary:active {
+  transform: translateY(1px);
+}
+
+.result {
+  display: grid;
+  gap: 14px;
+  text-align: center;
+}
+
+.score {
+  align-items: baseline;
+  color: var(--forest-dark);
+  display: flex;
+  gap: 6px;
+  justify-content: center;
+}
+
+.score strong {
+  font-size: 4rem;
+  line-height: 1;
+}
+
+.score span {
+  color: var(--muted);
+  font-size: 1.2rem;
+  font-weight: 800;
+}
+
+.error {
+  border-color: rgba(143, 47, 40, 0.35);
+  color: var(--danger);
+}
+
+@media (min-width: 430px) {
+  .tree-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
