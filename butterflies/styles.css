@@ -20,14 +20,21 @@
 
 html {
   min-height: 100%;
-  background: var(--bg);
+  background-color: var(--bg);
+  background-image:
+    linear-gradient(rgba(247, 243, 234, 0.16), rgba(247, 243, 234, 0.28)),
+    url("assets/backgrounds/butterfly-background.png");
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-size: cover;
   color: var(--ink);
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
 body {
+  background: transparent;
   margin: 0;
-  min-height: 100%;
+  min-height: 100vh;
 }
 
 button {
@@ -57,7 +64,8 @@ img {
 
 .topbar {
   align-items: center;
-  background: rgba(247, 243, 234, 0.96);
+  backdrop-filter: blur(8px);
+  background: rgba(247, 243, 234, 0.82);
   display: flex;
   gap: 12px;
   justify-content: space-between;
@@ -113,7 +121,7 @@ h2 {
 }
 
 .panel {
-  background: var(--surface);
+  background: rgba(255, 255, 255, 0.9);
   border: 1px solid rgba(25, 116, 93, 0.16);
   border-radius: 8px;
   box-shadow: var(--shadow);
@@ -161,7 +169,7 @@ h2 {
 }
 
 .butterfly-card {
-  background: var(--surface);
+  background: rgba(255, 255, 255, 0.88);
   border: 1px solid var(--line);
   border-radius: 8px;
   overflow: hidden;
