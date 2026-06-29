@@ -1,4 +1,11 @@
 (function () {
+  const params = new URLSearchParams(window.location.search);
+  if (params.get("start") !== "1") {
+    window.location.replace("../index.html");
+    return;
+  }
+  window.history.replaceState(null, "", window.location.pathname);
+
   const QUIZ_SIZE = 5;
   const CHOICE_COUNT = 4;
   const STUDY_SECONDS = 60;
@@ -74,12 +81,8 @@
     renderQuiz();
   }
 
-  function restart() {
-    state.questions = [];
-    state.questionIndex = 0;
-    state.score = 0;
-    renderStudy();
-    startStudyTimer();
+  function goHome() {
+    window.location.href = "../index.html";
   }
 
   function renderStudy() {
@@ -148,7 +151,7 @@
           <strong>${state.score}</strong>
           <span>/ ${QUIZ_SIZE}</span>
         </div>
-        <button class="primary" type="button" data-action="restart">再玩一次</button>
+        <button class="primary" type="button" data-action="restart">再來一次</button>
       </div>
     `;
   }
@@ -189,7 +192,7 @@
     }
 
     if (target.dataset.action === "restart") {
-      restart();
+      goHome();
       return;
     }
 
