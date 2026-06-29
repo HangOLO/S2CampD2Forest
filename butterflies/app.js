@@ -7,7 +7,7 @@
   window.history.replaceState(null, "", window.location.pathname);
 
   const QUIZ_SIZE = 5;
-  const CHOICE_COUNT = 4;
+  const CHOICE_COUNT = 8;
   const STUDY_SECONDS = 60;
 
   const app = document.querySelector("#app");
