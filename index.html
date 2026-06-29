@@ -16,6 +16,11 @@
         --gold: #d8a23a;
         --clay: #ad6036;
         --shadow: 0 16px 38px rgba(24, 33, 28, 0.14);
+        --assignment-background: url("trees/assets/backgrounds/tree-background.png");
+      }
+
+      html[data-assignment="butterflies"] {
+        --assignment-background: url("butterflies/assets/backgrounds/butterfly-background.png");
       }
 
       * {
@@ -24,13 +29,20 @@
 
       html {
         min-height: 100%;
-        background: var(--bg);
+        background-color: var(--bg);
+        background-image:
+          linear-gradient(rgba(246, 242, 232, 0.16), rgba(246, 242, 232, 0.3)),
+          var(--assignment-background);
+        background-position: center top;
+        background-repeat: no-repeat;
+        background-size: cover;
         color: var(--ink);
         font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
           sans-serif;
       }
 
       body {
+        background: transparent;
         margin: 0;
         min-height: 100vh;
       }
@@ -56,7 +68,8 @@
       }
 
       .assignment {
-        background: var(--surface);
+        backdrop-filter: blur(8px);
+        background: rgba(255, 255, 255, 0.88);
         border: 1px solid rgba(31, 111, 80, 0.16);
         border-radius: 8px;
         box-shadow: var(--shadow);
@@ -86,7 +99,7 @@
       }
 
       .assigned {
-        background: #eef4ed;
+        background: rgba(238, 244, 237, 0.88);
         border: 1px solid var(--line);
         border-radius: 8px;
         display: grid;
@@ -166,6 +179,7 @@
 
         const assignment = chooseAssignment();
         const quiz = QUIZZES[assignment];
+        document.documentElement.dataset.assignment = assignment;
         assignedValue.textContent = quiz.label;
 
         startButton.addEventListener("click", () => {
